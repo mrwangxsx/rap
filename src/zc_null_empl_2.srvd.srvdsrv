@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_NULL_EMPL_2'
+define service ZC_NULL_EMPL_2 {
+  expose ZC_NULL_EMPL_2;
+  expose ZC_NULL_PROJ;
+  expose ZC_NULL_SKILL;
+}

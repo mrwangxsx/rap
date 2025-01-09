@@ -1,0 +1,40 @@
+@Metadata.layer: #CORE
+@UI.headerInfo:{ typeName: 'Project',
+                 typeNamePlural :'Projects',
+                 title:{ value: 'Projid'},
+                 description:{ value:'ProjectName'} }
+annotate entity ZC_NULL_PROJ with
+{
+  // Facet - 1: Basic Info
+  @UI.facet: [{ position: 10,
+                label: 'Project Info',
+                type: #IDENTIFICATION_REFERENCE },
+                { position: 20,
+                label: 'Skill Info.',
+                targetElement: '_skill',
+                type: #LINEITEM_REFERENCE }]
+  @UI.lineItem: [{ position: 10 }]
+  @EndUserText: { label: 'Employess No.'}                   
+  @UI.identification: [{ position: 10 }]                   
+  Emplid;
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }] 
+  @EndUserText: { label: 'Project ID'}                      
+  Projid;
+  @UI.lineItem: [{ position: 30 }]  
+  @UI.identification: [{ position: 30 }]        
+  @EndUserText: { label: 'Project Name'}              
+  ProjectName;
+  @UI.lineItem: [{ position: 40 }] 
+  @UI.identification: [{ position: 40 }]   
+  @EndUserText: { label: 'Project Type'}                      
+  ProjectType;
+  @UI.lineItem: [{ position: 50 }]  
+  @UI.identification: [{ position: 50 }]   
+  @EndUserText: { label: 'Current Project'}                          
+  IsCurrent;
+  @UI.lineItem: [{ position: 60 }]   
+  @UI.identification: [{ position: 60 }]      
+  @EndUserText: { label: 'Duration'}                        
+  Duration;
+}

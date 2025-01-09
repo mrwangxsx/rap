@@ -1,0 +1,44 @@
+managed implementation in class zbp_c_null_empl_2 unique;
+strict ( 2 );
+
+define behavior for ZC_NULL_EMPL_2 //alias <alias_name>
+persistent table zdb_null_empl
+lock master
+authorization master ( instance )
+//etag master <field_name>
+late numbering
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) Emplid;
+  association _proj { create; }
+}
+
+define behavior for ZC_NULL_PROJ //alias <alias_name>
+persistent table zdb_null_proj
+lock dependent by _empl
+authorization dependent by _empl
+//etag master <field_name>
+late numbering
+{
+  update;
+  delete;
+  field ( readonly ) Emplid, Projid;
+  association _empl;
+  association _skill { create; }
+}
+
+define behavior for ZC_NULL_SKILL //alias <alias_name>
+persistent table zdb_null_skill
+lock dependent by _empl
+authorization dependent by _empl
+//etag master <field_name>
+late numbering
+{
+  update;
+  delete;
+  field ( readonly ) Emplid, Projid, Skillid;
+  association _empl;
+  association _proj;
+}

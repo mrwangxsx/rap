@@ -1,0 +1,80 @@
+@Metadata.layer : #CORE
+@UI.headerInfo:{ typeName: 'Employee',
+                 typeNamePlural :'Employees',
+                 title:{ value: 'Emplid'} ,
+                 description:{ value: 'Fname' } }
+annotate entity ZC_NULL_EMPL_2 with
+{
+  // Facet - 1: Basic Info
+  @UI.facet: [
+--Headere Area Facets  
+  { position: 10,purpose: #HEADER,type: #DATAPOINT_REFERENCE, targetQualifier: '_HDR_1' },
+  { position: 20,purpose: #HEADER,type: #DATAPOINT_REFERENCE, targetQualifier: '_HDR_2' },  
+--Standard Area Facets
+  { position: 10,purpose: #STANDARD,label: 'Basic Info.',type: #IDENTIFICATION_REFERENCE },
+
+-- Collection Fact  
+  { position: 20, label: 'Communication Info', type: #COLLECTION, id: '_COMM' },
+  { position: 20,label: 'Contact Info.',targetQualifier: '_CONT',type: #FIELDGROUP_REFERENCE ,parentId: '_COMM'},
+  { position: 30,label: 'Addr Info.',targetQualifier: '_ADDR',type: #FIELDGROUP_REFERENCE ,parentId: '_COMM'},
+  { position: 40,label: 'Project Info.',targetElement: '_proj',type: #LINEITEM_REFERENCE }]
+  @UI.lineItem: [{ position: 10,
+                   label: 'Employess No.' }]
+  @UI.selectionField: [{ position: 10 }]
+  @EndUserText: { label: 'Employess No.',quickInfo:'Employee as per records' }
+  @UI.identification: [{ position: 10 }]
+  Emplid;
+
+  @UI.lineItem: [{ position: 20 }]
+  @EndUserText: { label: 'First Name' }
+  @UI.identification: [{ position: 20 }]
+  Fname;
+
+  @UI.lineItem: [{ position: 30 }]
+  @EndUserText: { label: 'Last Name' }
+  @UI.identification: [{ position: 30 }]
+  Lname;
+
+  @UI.lineItem: [{ position: 40 }]
+  @UI.selectionField: [{ position: 20 }]
+  @UI.identification: [{ position: 40 }]
+  Gender;
+
+  @UI.lineItem: [{ position: 50 }]
+  @EndUserText: { label: 'Designation' }
+  @UI.selectionField: [{ position: 30 }]
+  @UI.identification: [{ position: 50 }]
+  @UI.dataPoint: { qualifier: '_HDR_1',
+                   title: 'Designation'}
+  Designation;
+
+  // Contact Info.
+  @UI.fieldGroup: [{ position:10 ,qualifier:'_CONT'}]
+  @EndUserText: { label: 'Phone Number' }
+  PhoneNum;
+  @UI.fieldGroup: [{ position:20 ,qualifier:'_CONT'}]
+  @EndUserText: { label: 'Alt. Phone Number' }
+  AltPhoneNum;
+  @UI.fieldGroup: [{ position:30 ,qualifier:'_CONT'}]
+  @EndUserText: { label: 'Email Id' }
+  EmailId;
+  @UI.fieldGroup: [{ position:40 ,qualifier:'_CONT'}]
+  @EndUserText: { label: 'Alt. Email Id' }
+  AltEmailId;
+
+  // Address Info.
+  @UI.fieldGroup: [{ position:10 ,qualifier:'_ADDR'}]
+  @EndUserText: { label: 'Street' }
+  Street;
+  @UI.fieldGroup: [{ position:20 ,qualifier:'_ADDR'}]
+  @EndUserText: { label: 'City' }
+  City;
+  @UI.fieldGroup: [{ position:30 ,qualifier:'_ADDR'}]
+  @EndUserText: { label: 'Country' }
+  @UI.dataPoint: { qualifier: '_HDR_2',
+                   title: 'Country'}  
+  Country;
+
+  //Project information
+
+}

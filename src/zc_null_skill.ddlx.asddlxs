@@ -1,0 +1,26 @@
+@Metadata.layer: #CORE
+@UI.headerInfo:{ typeName: 'Skill',
+                 typeNamePlural :'Skills',
+                 title:{ value: 'Skillid'},
+                 description:{ value:'SkillLevel'} }
+annotate entity ZC_NULL_SKILL with
+{
+  // Facet - 1: Basic Info
+  @UI.facet: [{ position: 10,
+                label: 'Skill Info',
+                type: #IDENTIFICATION_REFERENCE }]
+  @UI.lineItem: [{ position: 10 }]
+  @EndUserText: { label: 'Skill id'}
+  Skillid;
+  @UI.lineItem: [{ position: 20 }]
+  @EndUserText: { label: 'Skill Level'}
+  SkillLevel;
+  @UI.lineItem: [{ position: 30 }]
+  @EndUserText: { label: 'Primary skill'}
+  @UI.identification: [{ position: 10 }]   
+  IsPrimary;
+  @UI.lineItem: [{ position: 40 }]
+  @EndUserText: { label: 'Certified skill'}
+  @UI.identification: [{ position: 20 }]   
+  IsCertified;
+}

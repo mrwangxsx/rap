@@ -1,0 +1,9 @@
+@EndUserText.label: 'ZC_NULL_EMPL_2'
+@MappingRole: true
+define role ZC_NULL_EMPL_2 {
+    grant
+        select
+            on
+                ZC_NULL_EMPL_2;
+                        
+}
